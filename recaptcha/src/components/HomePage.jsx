@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Grid from "./Grid";
 
 const HomePage = () => {
     const [image, setImage] = useState(null);
@@ -12,7 +13,7 @@ const HomePage = () => {
         <div className="container">
             <div className="left">
                 <h1>Detect Objects <br></br> Like reCaptcha</h1>
-                <p>Upload an image to and see which tiles contain your chosen object</p>
+                <p>Upload an image to see which tiles contain your chosen object</p>
             </div>
 
             <div className="upload-card">
@@ -27,6 +28,7 @@ const HomePage = () => {
                     </div>
                 ) : (
                     <div className="upload-split">
+                        <Grid image={image}/>
 
                     </div>
                 )}

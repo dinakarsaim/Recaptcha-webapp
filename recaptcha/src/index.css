@@ -76,9 +76,9 @@ body {
   background: #007bff;
   border: none;
   color: white;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 12px 28px;
+  font-size: 20px;
+  font-weight: 580;
+  padding: 16px 40px;
   border-radius: 30px;
   cursor: pointer;
   transition: background 0.3s;
@@ -89,8 +89,26 @@ body {
 }
 
 .upload-box p {
-  font-size: 20px;
+  font-size: 16px;
   color: #555;
   margin: 0;
+}
+
+.grid-container {
+  width: 300px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.grid-tile {
+  border: 1px solid #eee;
+  background-size: cover;
+  background-position: center;
 }
 

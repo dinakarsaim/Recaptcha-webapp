@@ -15,13 +15,13 @@ const HomePage = () => {
                 <p>Upload an image to and see which tiles contain your chosen object</p>
             </div>
 
-            <div className="Upload-card">
+            <div className="upload-card">
                 {!image ? (
                     <div className="upload-file">
                         <input type="file" id="inputFile" onChange={uploadFile}></input>
-                        <label htmlFor="inputFile">
-                            <p>Upload Image</p>
-                            <span>Or drop a file here</span>
+                        <label htmlFor="inputFile" className="upload-box">
+                            <button className="upload-btn">Upload Image</button>
+                            <p> or drop a file here </p>
                         </label>
 
                     </div>

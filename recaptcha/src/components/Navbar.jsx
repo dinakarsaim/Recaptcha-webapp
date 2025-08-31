@@ -6,7 +6,10 @@ const Navbar = () => {
         <nav className="navbar">
 
             <div className="bypass">
-                <h2>BypassRecaptcha</h2>
+                <h2>
+                    <span className="bypass-text">Bypass</span>
+                    <span className="recaptcha-text">reCaptcha</span>
+                </h2>
             </div>
 
             <ul className="navbar-links">

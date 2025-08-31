@@ -3,10 +3,28 @@ import Grid from "./Grid";
 
 const HomePage = () => {
     const [image, setImage] = useState(null);
+    const [tiles, setTiles] = useState([]);
 
-    const uploadFile = (e) => {
+
+    const uploadFile = async (e) => {
         const file = e.target.files[0];
-        setImage(URL.createObjectURL(file));
+        if (file) {
+            setImage(URL.createObjectURL(file));
+        }
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+        const res = await fetch ("http://127.0.0.1:3000/predict", {
+            method: "POST",
+            body: formData,
+        });
+
+        const data = await res.json();
+        console.log("API Response:", data);
+
+        setTiles(data.tiles || []);
+
     }
 
     return (
@@ -20,16 +38,16 @@ const HomePage = () => {
                 {!image ? (
                     <div className="upload-file">
                         <input type="file" id="inputFile" onChange={uploadFile}></input>
-                        <label htmlFor="inputFile" className="upload-box">
-                            <button className="upload-btn">Upload Image</button>
-                            <p> or drop a file here </p>
+                        <label htmlFor="inputFile" className="upload-btn upload-box">
+                            {/* <button className="upload-btn">Upload Image</button> */}
+                            Upload Image
                         </label>
+                        <p className="upload-text"> or drop a file here </p>
 
                     </div>
                 ) : (
                     <div className="upload-split">
-                        <Grid image={image}/>
-
+                        <Grid image={image} detections={tiles}/>
                     </div>
                 )}
             </div>

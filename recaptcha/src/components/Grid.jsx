@@ -1,13 +1,13 @@
 import React from "react";
 
 const Grid = (props) => {
-    const {image} = props;
+    const {image, detections} = props;
 
     return (
         <div className="grid-container">
             {Array.from({length: 9}).map((_, i) => (
                 <div 
-                    className="grid-tile" 
+                    className={`grid-tile ${detections.includes(i) ? "highlighted" : ""}`}
                     key={i}
                     style = {{
                         backgroundImage : `url(${image})`,
